@@ -4,14 +4,17 @@ import Onboarding from 'react-native-onboarding-swiper'
 import LottieView from 'lottie-react-native'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { useNavigation } from '@react-navigation/native'
+import { setItem } from '../Util/asyncstorage'
 
 const OnboardingScreen = () => {
   const navigation = useNavigation()
 
-const handleDone =()=>{
+const handleDone =async()=>{
+  await setItem('onboarded','1')
   navigation.navigate('Home')
 }
-const handleSkip =()=>{
+const handleSkip =async ()=>{
+  await setItem('onboarded','1')
   navigation.navigate('Home')
 }
 
